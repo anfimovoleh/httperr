@@ -22,7 +22,7 @@ func BadRequest(w http.ResponseWriter, err error) {
 	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusBadRequest, err)))
 }
 
-func NotFound(w http.ResponseWriter, err error) {
+func NotFound(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusNotFound)
-	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusNotFound, err)))
+	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusNotFound, ErrNotFound)))
 }
