@@ -34,6 +34,6 @@ func Forbidden(w http.ResponseWriter, err error) {
 
 func RequestTimeout(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusRequestTimeout)
-	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusForbidden, ErrRequestTimeout)))
+	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusRequestTimeout, ErrRequestTimeout)))
 
 }
