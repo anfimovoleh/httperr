@@ -26,3 +26,14 @@ func NotFound(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusNotFound)
 	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusNotFound, ErrNotFound)))
 }
+
+func Forbidden(w http.ResponseWriter, err error) {
+	w.WriteHeader(http.StatusForbidden)
+	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusForbidden, err)))
+}
+
+func RequestTimeout(w http.ResponseWriter) {
+	w.WriteHeader(http.StatusRequestTimeout)
+	_, _ = w.Write([]byte(fmt.Sprintf(responseErrorFormat, http.StatusForbidden, ErrRequestTimeout)))
+
+}
